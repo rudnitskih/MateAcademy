@@ -12,7 +12,6 @@
   - in the folder `src` create one HTML file
   - in the folder `src` create folder `css` with two CSS files
   - in the folder `src` create folder `images` with at least one image file
-  - in the folder `src` create folder `fonts` with at least one font
   - use all css styles, images and fonts in your project
   - install Gulp locally(!!!) and create `gulpfile.js`
 
