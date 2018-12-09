@@ -93,9 +93,9 @@ const cats = [
 ```
 
 ### Tasks:
-  0. Write function `printCat` which accept cat object and show his ID and name in console in any way. 
-  1. Print all cats on the screen;
-  2. Create an array with cats `name`, `id` and `category` and print this array to console
+  0. Write function `printCat` which accept cat object and show his `id` and `name` in console in any way. 
+  1. Create function `printCats` which iterate over all cats and print them using `printCat` function;
+  2. Create a new array with cats `name`, `id` and `category` and print these cats.
   3. Filter cats with price more than 8000 and print them 
   4. Group Cats by category (slow, middle, fast). The final result should like:
 
