@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="slider-1"></div>
+<hr/>
+<div id="slider-2"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const catImages = [
+      "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495636.svg",
+      "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495625.svg",
+      "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495622.svg",
+      "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495619.svg",
+      "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495616.svg",
+      "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495613.svg",
+      "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495592.svg",
+      "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495579.svg",
+      "https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/336916.svg"
+    ];
+
+    function Slider({root, images}) {
+      let currentSlide = 0;
+
+      root.innerHTML = `
+        <button></button>
+    `;
+
+      this.nextSlide = () => {
+        currentSlide++;
+        updateSlide();
+      };
+
+      this.prevSlide = () => {
+        currentSlide--;
+        updateSlide();
+      };
+
+      document.addEventListener('click', (e) => {
+        if (e.target.matches('.previous-slide')) {
+          this.prevSlide();
+        }
+
+        if (e.target.matches('.next-slide')) {
+          this.nextSlide();
+        }
+      });
+
+      function updateSlide() {
+        console.log('Update img', currentSlide);
+        document.querySelector('img').src = images[currentSlide];
+      }
+    }
+
+    const slider = new Slider({
+      images: catImages,
+      root: document.querySelector('#slider-1')
+    });
+    const slider2 = new Slider({
+      images: catImages,
+      root: document.querySelector('#slider-2')
+    });
+  });
+</script>
+</body>
+</html>
