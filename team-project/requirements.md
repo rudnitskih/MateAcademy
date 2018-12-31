@@ -30,29 +30,29 @@
     ```
   16. Код для JS библиотеки компонентов должен быть отделен от кода вашей документации. Другие разработчики которые 
   захотят подключить библиотеку не должны загружать код для документации
-  17. 
-  18. 
-  19. 
-  20. Список необходимых компонентов:
-      20.1 Buttons (Flat and Raised). [Reference](https://material-ui.com/demos/buttons/)
-      20.2 Icon Button. The same reference as above.
-      20.3 Floating Action The same reference as above.
-      20.4 FAB speed Dial. Button should keep the same position, but buttons inside should appear. [Reference](https://material-ui.com/lab/speed-dial/)
-      20.5 Divider [Reference](https://material-ui.com/demos/dividers/)
-      20.6 Tooltip [Reference](https://material-ui.com/demos/tooltips/)
-      20.7 Progress (Linear and Circle) [Reference](https://material-ui.com/demos/progress/)
-      20.8 Inputs (text, textarea, checkbox, switch, radiobutton). Don't forget about active and disabled states 
-      [Reference#1](https://material-ui.com/demos/text-fields/) and [Reference#2](https://material-ui.com/demos/selection-controls/)
-      20.9 Range slider (discrete and infinite select). For configuration for slider minimum, maximum values and type
-       of slider use `data-attributes` [Reference]()
-      20.10 Menu [Reference](https://material-ui.com/demos/menus)
-      20.11 Menu Inside Dropdown. Make simple hide/show which we did on the lesson. Without animation.
-      20.12 Tabs (versions a,b,c) Tabs inside Toolbar is not required. [Reference](https://material-ui.com/demos/tabs/)
-      20.13 Dialog [Reference](https://material-ui.com/demos/dialogs/)
-      20.14 Toast [Reference](https://material-ui.com/demos/snackbars/)
-      20.15 Cards [Reference](https://material-ui.com/demos/cards/)
-      20.16 Toolbar [Reference](https://material-ui.com/demos/app-bar/)
-      20.17 Table [Reference](https://material-ui.com/demos/tables/)
+  17. Don't know yet :)
+  18. Don't know yet :)
+  19. Don't know yet :)
+  20. Список необходимых компонентов:  
+    20.1 Buttons (Flat and Raised). [Reference](https://material-ui.com/demos/buttons/)  
+    20.2 Icon Button. The same reference as above.  
+    20.3 Floating Action The same reference as above.  
+    20.4 FAB speed Dial. Button should keep the same position, but buttons inside should appear. [Reference](https://material-ui.com/lab/speed-dial/)  
+    20.5 Divider [Reference](https://material-ui.com/demos/dividers/)  
+    20.6 Tooltip [Reference](https://material-ui.com/demos/tooltips/)  
+    20.7 Progress (Linear and Circle) [Reference](https://material-ui.com/demos/progress/)  
+    20.8 Inputs (text, textarea, checkbox, switch, radiobutton). Don't forget about active and disabled states 
+    [Reference#1](https://material-ui.com/demos/text-fields/) and [Reference#2](https://material-ui.com/demos/selection-controls/)  
+    20.9 Range slider (discrete and infinite select). For configuration for slider minimum, maximum values and type
+     of slider use `data-attributes` [Reference](https://material-ui.com/lab/slider/)  
+    20.10 Menu [Reference](https://material-ui.com/demos/menus)  
+    20.11 Menu Inside Dropdown. Make simple hide/show which we did on the lesson. Without animation.  
+    20.12 Tabs (versions a,b,c) Tabs inside Toolbar is not required. [Reference](https://material-ui.com/demos/tabs/)  
+    20.13 Dialog [Reference](https://material-ui.com/demos/dialogs/)  
+    20.14 Toast [Reference](https://material-ui.com/demos/snackbars/)  
+    20.15 Cards [Reference](https://material-ui.com/demos/cards/)  
+    20.16 Toolbar [Reference](https://material-ui.com/demos/app-bar/)  
+    20.17 Table [Reference](https://material-ui.com/demos/tables/)  
       
    21. You can skip the following components:
     - Lists https://zpl.io/boZXEQE
