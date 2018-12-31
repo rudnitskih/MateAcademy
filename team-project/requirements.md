@@ -1,3 +1,4 @@
+# Components Library team project
 ## Requirements: 
   1. Код должен соотвествовать [Mate Academy Style Guide](https://mate-academy.github.io/style-guides/) 
   2. Весь Sass код должен быть отформатирован с помощью `prettier`, `stylelint` с конфигом 
@@ -54,7 +55,7 @@
     20.16 Toolbar [Reference](https://material-ui.com/demos/app-bar/)  
     20.17 Table [Reference](https://material-ui.com/demos/tables/)  
       
-   21. You can skip the following components:
-    - Lists https://zpl.io/boZXEQE
-    - Tabs inside the Toolbar - https://zpl.io/VKoz9Mq
-    - Datepicker - https://zpl.io/bJZJ1rn
+   21. You can skip the following components:  
+    - Lists https://zpl.io/boZXEQE  
+    - Tabs inside the Toolbar - https://zpl.io/VKoz9Mq  
+    - Datepicker - https://zpl.io/bJZJ1rn  
