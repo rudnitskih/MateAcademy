@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  const request = new XMLHttpRequest();
+
+  request.addEventListener("load", reqListener);
+  request.open("GET", "https://api.punkapi.com/v2/beers");
+  request.send();
+
+  function reqListener() {
+    const beers = JSON.parse(request.responseText);
+    let theWeakestBeer = beers[0];
+
+    beers.forEach((beer) => {
+      if (theWeakestBeer.abv > beer.abv) {
+        theWeakestBeer = beer;
+      }
+    });
+
+    const ebc = theWeakestBeer.ebc;
+
+    const request2 = new XMLHttpRequest();
+
+    request2.addEventListener("load", reqListener2);
+    request2.open("GET", `https://api.punkapi.com/v2/beers?ebc_gt=${ebc - 1}&ebc_lt=${ebc + 1}`);
+    request2.send();
+
+    function reqListener2() {
+      const beers = JSON.parse(request2.responseText);
+
+      console.log(beers);
+    }
+  }
+
+</script>
+</body>
+</html>
