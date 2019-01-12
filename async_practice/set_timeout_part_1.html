@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  const id = setTimeout(() => {
+
+    const t1 = performance.now();
+
+    const id2 = setTimeout(function () {
+      const t2 = performance.now();
+
+      console.log('Execution time: ', t2 - t1);
+    }, 0);
+
+    console.log('Second ID:', id2);
+
+  }, 2000);
+
+
+  const idInt = setInterval(() => {
+    console.log('Hello');
+  }, 100);
+
+  setTimeout(() => {
+    clearTimeout(idInt);
+  }, 1000);
+
+  console.log('First ID', id);
+</script>
+</body>
+</html>

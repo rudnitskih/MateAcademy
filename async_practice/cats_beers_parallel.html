@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let beers;
+  let cats;
+
+  const t1 = performance.now();
+
+  getBeers((_beers) => {
+    beers = _beers;
+    showAll();
+  });
+
+  getCats((_cats) => {
+    cats = _cats;
+    showAll();
+  });
+
+  function showAll() {
+    if (cats && beers) {
+      const t2 = performance.now();
+
+      console.log('Beers=', beers);
+      console.log('Cats=', cats);
+      console.log('T2 - t1=', t2 - t1);
+    }
+  }
+
+  function getBeers(callback) {
+    setTimeoutInRange(() => {
+      const beers = ['Obolon', 'Chernigiv', 'Corona', 'Lvivske'];
+
+      callback(beers);
+    }, 100, 400);
+  }
+
+  function getCats(callback) {
+    setTimeoutInRange(() => {
+      const beers = ['Brit', 'Siam', 'Egypt', 'Scotland'];
+
+      callback(beers);
+    }, 300, 700);
+  }
+
+  function setTimeoutInRange(callback, min, max) {
+    const randomTime = getRandomInt(min, max);
+
+    setTimeout(() => {
+      callback(randomTime);
+    }, randomTime);
+
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  }
+
+</script>
+</body>
+</html>

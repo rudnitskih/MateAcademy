@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function addEventListener(eventName, callback) {
+    setTimeout(() => {
+      const event = {
+        type: eventName,
+        target: document.body
+      };
+
+      callback(event);
+    }, 100);
+  }
+
+  addEventListener('click', (event) => {
+    console.log(event);
+  });
+</script>
+</body>
+</html>

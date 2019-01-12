@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  getAllBeers()
+    .then(function(beers) {
+      const ebc = findTheWeakestBeer(beers).ebc;
+
+      return getAllBeersWithEbc(ebc);
+    })
+    .then(showBeers);
+
+  function getAllBeers() {
+    return fetch('https://api.punkapi.com/v2/beers')
+      .then(function(response) {
+        return response.json();
+      });
+  }
+
+  function getAllBeersWithEbc(ebc) {
+    return fetch(`https://api.punkapi.com/v2/beers?ebc_gt=${ebc - 1}&ebc_lt=${ebc + 1}`)
+      .then(function(response) {
+        return response.json();
+      });
+  }
+
+  function findTheWeakestBeer(beers) {
+    let theWeakestBeer = beers[0];
+
+    beers.forEach((beer) => {
+      if (theWeakestBeer.abv > beer.abv) {
+        theWeakestBeer = beer;
+      }
+    });
+
+    return theWeakestBeer;
+  }
+
+  function showBeers(beers) {
+    console.log('Beers:', beers);
+  }
+</script>
+</body>
+</html>

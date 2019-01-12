@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  getAllBeers(function (beers) {
+    const ebc = findTheWeakestBeer(beers).ebc;
+
+    getAllBeersWithEbc(ebc, showBeers);
+  });
+
+  function getAllBeers(callback) {
+    const request = new XMLHttpRequest();
+
+    request.addEventListener('load', () => {
+      callback(JSON.parse(request.responseText));
+    });
+    request.open("GET", "https://api.punkapi.com/v2/beers");
+    request.send();
+  }
+
+  function findTheWeakestBeer(beers) {
+    let theWeakestBeer = beers[0];
+
+    beers.forEach((beer) => {
+      if (theWeakestBeer.abv > beer.abv) {
+        theWeakestBeer = beer;
+      }
+    });
+
+    return theWeakestBeer;
+  }
+
+  function getAllBeersWithEbc(ebc, callback) {
+    const request2 = new XMLHttpRequest();
+
+    request2.addEventListener("load", () => {
+      callback(JSON.parse(request2.responseText));
+    });
+    request2.open("GET", `https://api.punkapi.com/v2/beers?ebc_gt=${ebc - 1}&ebc_lt=${ebc + 1}`);
+    request2.send();
+  }
+
+  function showBeers(beers) {
+    console.log('Beers:', beers);
+  }
+</script>
+</body>
+</html>
