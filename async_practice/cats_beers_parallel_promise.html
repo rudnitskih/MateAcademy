@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function setTimeoutInRange(min, max) {
+    return new Promise((resolve) => {
+      const randomTime = getRandomInt(min, max);
+
+      setTimeout(() => {
+        resolve(randomTime);
+      }, randomTime);
+
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+    });
+  }
+
+
+
+  function getBeers() {
+    const beers = ['Obolon', 'Lvivske'];
+
+    return setTimeoutInRange(200, 1000)
+        .then(() => {
+          return beers;
+        });
+  }
+
+  getBeers()
+    .then((beers) => {
+      console.log('Our Beers', beers);
+    });
+</script>
+</body>
+</html>
