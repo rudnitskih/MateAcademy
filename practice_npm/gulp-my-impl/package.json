@@ -4,14 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dima-serve": "gulp default",
-    "dima-build": "gulp build",
+    "start": "gulp default",
+    "build": "gulp build",
+    "format": "prettier -f ",
+    "predeploy": "gulp build",
+    "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.3",
+    "gh-pages": "^2.0.1",
     "gulp": "3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean": "^0.4.0",
