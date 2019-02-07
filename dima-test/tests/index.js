@@ -1,0 +1,2 @@
+require('./getRequiredData');
+require('./localizeData');
