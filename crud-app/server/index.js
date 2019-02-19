@@ -2,6 +2,7 @@ const express = require('express');
 const low = require('lowdb');
 const cors = require('cors')
 const FileSync = require('lowdb/adapters/FileSync');
+const usersHandler = require('./usersHandler.js');
 
 const adapter = new FileSync('data.json');
 const db = low(adapter);
@@ -12,27 +13,17 @@ const port = 7070;
 app.use(express.json());
 app.use(cors());
 
-app.get('/users', (request, response) => {
-  let {limit, page, search, order, sortBy} = request.query;
-
-  limit = Number(limit);
-  page = Number(page);
-
-  let users = db.get('users');
-
-  if (limit > 0 && page > 0) {
-    users = users.value().slice((page * limit) - 1, (page + 1) * limit);
-  }
-
-  response.send(users);
-});
+app.get('/users', usersHandler);
 
 app.post('/users', (request, response) => {
   const user = request.body;
 
   if (user && user.name && user.name.length > 0) {
     db.get('users')
-      .push(user)
+      .push({
+        ...user,
+        createdAt: new Date()
+      })
       .write();
 
     response.headers = {

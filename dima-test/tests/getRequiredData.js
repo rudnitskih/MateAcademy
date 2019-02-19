@@ -23,7 +23,8 @@ const scheme = {
     surname: true,
     firstName: true,
     middleName: false
-  }
+  },
+  age: true
 };
 
 const expectedData = [

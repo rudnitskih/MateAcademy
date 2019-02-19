@@ -1,5 +1,15 @@
 const getRequiredData = (originalData, transformationScheme) => {
   /* Your code here */
+
+  Object.keys(transformationScheme).map((transformationSchemeKey) => {
+    const transformationSchemeValue = transformationScheme[transformationSchemeKey];
+
+    if (typeof transformationSchemeValue === 'object') {
+
+    } else {
+
+    }
+  });
 };
 
 const localizeData = (originalData, localizationScheme) => {

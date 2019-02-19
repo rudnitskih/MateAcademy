@@ -4,6 +4,7 @@ export class TableUsers {
   async init() {
     const backend = new AppBackend('https://5bf417c491c25b0013a3b9a2.mockapi.io');
 
+    this.page = 1;
     this.users = await backend.get({});
     this.render();
 
@@ -17,6 +18,10 @@ export class TableUsers {
       if (e.target.matches('.search-input')) {
         backend.get(e.target.dataset.id);
       }
+
+      this.page++;
+      backend.get(e.target.dataset.id);
+      this.render();
     });
   }
 
