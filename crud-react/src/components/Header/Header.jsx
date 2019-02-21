@@ -1,11 +1,17 @@
 import React from "react";
-import {Button} from "react-bootstrap";
+import {Form} from "react-bootstrap";
 import './Header.css';
 
-export const Header = () => {
+export const Header = (props) => {
+  const {onSelectChange, limit} = props;
+
   return (
     <header>
-      <Button variant="primary">Primary</Button>
+      <Form.Control as="select" onChange={onSelectChange} defaultValue={limit}>
+        <option>5</option>
+        <option>10</option>
+        <option>15</option>
+      </Form.Control>
     </header>
   );
 };

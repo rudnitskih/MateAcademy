@@ -23,7 +23,7 @@ export class UserRow extends React.Component {
 
     return (
       <tr>
-        <td>{id}</td>
+        <td className="user-row__id">{id}</td>
         <td>{isEditMode ? <input type="text" value={name}/> : name}</td>
         <td>{email}</td>
         <td>
