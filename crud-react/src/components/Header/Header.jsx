@@ -7,7 +7,9 @@ export const Header = (props) => {
 
   return (
     <header>
-      <Form.Control as="select" onChange={onSelectChange} defaultValue={limit}>
+      <Form.Control as="select"
+                    onChange={(event) => onSelectChange(event.target.value)}
+                    defaultValue={limit}>
         <option>5</option>
         <option>10</option>
         <option>15</option>

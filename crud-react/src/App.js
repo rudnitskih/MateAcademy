@@ -4,6 +4,7 @@ import {Container} from 'react-bootstrap';
 import {Header} from "./components/Header";
 import {TableUsers} from "./components/TableUsers/TableUsers";
 import {AppBackend} from "./AppBackend";
+import {Footer} from "./components/Footer/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -11,26 +12,45 @@ class App extends Component {
 
     this.state = {
       users: [],
-      limit: 15
+      limit: 15,
+      page: 1,
+      search: ''
     };
 
     this.backend = new AppBackend();
   }
 
-  async componentDidMount() {
-    const users = await this.backend.get({limit: this.state.limit});
+  componentDidMount() {
+    this.updateUsers();
+  }
 
-    this.setState({
-      users
+  onSelectChange = async (limit) => {
+    this.setState({limit}, () => {
+      this.updateUsers();
+    });
+  };
+
+  onSearchChange = async (value) => {
+    const search = event.target.value;
+
+    this.setState({search}, () => {
+      this.updateUsers();
+    });
+  };
+
+  onPageChange = async (value) => {
+    this.setState({page: value}, () => {
+      this.updateUsers();
     });
   }
 
-  onSelectChange = async (event) => {
-    const limit = event.target.value;
+  updateUsers = async () => {
+    const {limit, search} = this.state;
 
-    this.setState({limit});
-
-    const users = await this.backend.get({limit});
+    const users = await this.backend.get({
+      search,
+      limit,
+    });
 
     this.setState({
       users
@@ -40,8 +60,12 @@ class App extends Component {
   render() {
     return (
       <Container>
-        <Header onSelectChange={this.onSelectChange} limit={this.state.limit}/>
+        <Header onSelectChange={this.onSelectChange}
+                limit={this.state.limit}
+                onSearhChange={this.onSearchChange}
+        />
         <TableUsers users={this.state.users}/>
+        <Footer onPageChange={this.onPageChange}/>
       </Container>
     );
   }
